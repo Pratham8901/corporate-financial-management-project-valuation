@@ -4,7 +4,7 @@
 
 A finance portfolio case study evaluating a hypothetical subscription-based AI entertainment business through discounted cash-flow valuation, scenario analysis, sensitivity testing, and managerial real options. The repository is a **portfolio-style Python companion** to a collaborative Excel modelling project; it is **not** the original assessment submission.
 
-> **Publication status: private-first draft.** The input assumptions originate from a university case and the original analysis was collaborative. Confirm permissions before publishing or distributing the repository. See [publication checklist](docs/publication_checklist.md) and [rights notice](NOTICE.md).
+> **Publication status: private-first draft.** The input assumptions originate from a university case and the original analysis was collaborative. See [publication checklist](docs/publication_checklist.md) and [rights notice](NOTICE.md).
 
 ## Executive summary
 
