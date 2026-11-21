@@ -1,89 +1,80 @@
-# Capital Budgeting & Real Options | Corporate Financial Management
+# Corporate Financial Management | Capital Budgeting & Real Options
 
-**RMIT University · Master of Finance · BAFI3257 · Collaborative academic project**
+**RMIT University · Master of Finance · BAFI3257 · Collaborative coursework**
 
-A finance portfolio case study evaluating a hypothetical subscription-based AI entertainment business through discounted cash-flow valuation, scenario analysis, sensitivity testing, and managerial real options. The repository is a **portfolio-style Python companion** to a collaborative Excel modelling project; it is **not** the original assessment submission.
+A portfolio-style reconstruction of an investment decision for a **hypothetical AI-powered subscription platform**. This project examines whether subscription growth can justify infrastructure investment, and how managerial flexibility changes the decision.
 
-> **Publication status: private-first draft.** The input assumptions originate from a university case and the original analysis was collaborative. See [publication checklist](docs/publication_checklist.md) and [rights notice](NOTICE.md).
+> **Private, coursework-derived case.** Original group submissions, instructor materials, student IDs and restricted spreadsheets are deliberately excluded. Read [attribution and rights](NOTICE.md) and the [publication checklist](docs/publication_checklist.md) before changing visibility.
 
-## Executive summary
+## Investment decision at a glance
 
-The project models ten years of operating cash flows (2027–2036), using a 2026 valuation date, lagged income tax, tiered subscriber growth, scheduled infrastructure replacements, working capital, and a terminal perpetuity. An explicit decision tree compares expansion under favourable demand with abandonment under unfavourable demand.
-
-### Key results — base case
-
-| Metric | NPV ($m) |
-|:--|--:|
-| Optimistic scenario | **+29.06** |
-| Pessimistic scenario | **−47.60** |
-| Expected NPV before managerial options (40%/60%) | **−16.94** |
+| Metric | Value ($ millions) |
+|---|---:|
+| Optimistic base-case NPV | **+29.06** |
+| Pessimistic base-case NPV | **−47.60** |
+| **Probability-weighted NPV, without options** | **−16.94** |
 | Optimistic expansion branch | **+86.18** |
-| Pessimistic abandonment branch | **−157.02** |
-| Expected NPV after optimal real options | **+5.91** |
+| Expected NPV **with optimal real options** | **+5.91** |
 | **Value of managerial flexibility** | **+22.85** |
 
-**Interpretation:** The conventional probability-weighted base case would not justify immediate acceptance on NPV alone. Conditional managerial flexibility raises the expected modelled value to a modest positive figure, principally through expansion in the optimistic scenario. That conclusion is fragile because terminal value drives much of the valuation.
+**Conclusion:** The conventional expected NPV is negative, but the option to expand after favourable demand makes the modelled expected NPV marginally positive. This is *conditional*, not a robust unconditional approval: terminal value is a major driver and future infrastructure reinvestment may reduce economic value.
 
-### Sensitivity analysis (Python model output)
+## Visual overview
 
-| Assumption set | Optimistic | Pessimistic | Probability-weighted |
-|:--|--:|--:|--:|
-| Base case — 14% discount | +29.06 | −47.60 | −16.94 |
+### Projected cash flows by scenario
+![Projected annual free cash flow](figures/cashflow_by_scenario.svg)
+
+### NPV sensitivity to assumptions
+![Sensitivity analysis chart](figures/npv_sensitivity.svg)
+
+### Effect of managerial options
+![Expected NPV and real options value](figures/real_options_value.svg)
+
+### Subscription revenue path
+![Projected subscription revenue](figures/revenue_by_scenario.svg)
+
+## Sensitivity analysis
+
+| Case | Optimistic | Pessimistic | Expected NPV |
+|---|---:|---:|---:|
+| Base case; 14% discount | +29.06 | −47.60 | −16.94 |
 | Inflation +1 percentage point | +46.77 | −35.52 | −2.61 |
-| Discount rate 10% | +233.36 | +99.34 | +152.95 |
-| Both adjustments | +268.78 | +124.01 | +181.92 |
+| Discount rate reduced to 10% | +233.36 | +99.34 | +152.95 |
+| Both changes | +268.78 | +124.01 | +181.92 |
 
-The original spreadsheet reported **+46.81 / −35.48** for the inflation-only scenario and **+268.86 / +124.09** for both adjustments; the small differences result from an end-2036 working-capital projection inconsistency identified during reconciliation. This implementation consistently escalates all projected 2037 cost components. See [methodology and audit](docs/methodology.md).
-
-## Visual analysis
-
-![Free cash flow comparison](figures/cashflow_by_scenario.png)
-
-![NPV sensitivity comparison](figures/npv_sensitivity.png)
-
-![Managerial flexibility valuation](figures/real_options_value.png)
+*Values are $ millions. Slight inflation-case differences from the collaborative spreadsheet are explained in the [audit notes](docs/methodology.md).*
 
 ## Skills demonstrated
 
-- **Capital budgeting:** DCF, terminal-value modelling, project NPV, and weighted scenario valuation.
-- **Financial modelling:** revenue build, operating expense forecast, depreciation, delayed tax payments, asset replacement, and net working capital.
-- **Risk and decision analysis:** sensitivity to inflation and hurdle rates; expansion-versus-continuation and abandonment-versus-continuation decisions.
-- **Reproducible analytics:** parameterised Python model, CSV exports, automated charts, and regression/unit tests.
+**Finance:** discounted cash flow, capital budgeting, terminal valuation, scenario analysis, probability weighting, working capital, real-option decision trees.  
+**Analytics:** Python, parameterised inputs, automated model tests, CSV reporting and analytical visualisation.
 
-## Repository structure
+## Repository guide
 
-```text
-config/assumptions.json          # Case input assumptions (publication clearance needed)
-src/cfm/valuation.py            # Reusable DCF and options engine
-scripts/run_analysis.py         # Export CSV analyses and generate figures
-tests/test_valuation.py         # Reconciliation and unit tests
-outputs/                        # NPV, cash-flow and decision CSVs
-figures/                        # Revenue, cash flow, NPV and real-options charts
-docs/methodology.md             # Calculation conventions and audit trail
-docs/publication_checklist.md   # Academic-integrity and data-rights checks
-NOTICE.md                       # Attribution and rights guidance
-```
+| Location | Contents |
+|---|---|
+| [config/assumptions.json](config/assumptions.json) | Project inputs and scenario probabilities |
+| [src/cfm/valuation.py](src/cfm/valuation.py) | Reusable financial model |
+| [scripts/run_analysis.py](scripts/run_analysis.py) | Results export |
+| [tests/test_valuation.py](tests/test_valuation.py) | Model regression checks |
+| [outputs/](outputs) | Reconciled CSV summaries |
+| [figures/](figures) | GitHub-friendly SVG charts |
+| [docs/methodology.md](docs/methodology.md) | Methodology, assumptions and audit limitations |
+| [docs/publication_checklist.md](docs/publication_checklist.md) | Requirements before making the repository public |
 
-## Run locally
+## Reproduce results
 
-Requires Python 3.10+.
+Requires **Python 3.10+**. No third-party Python library is needed to run the valuation and tests.
 
 ```bash
-python -m pip install -r requirements.txt
 python scripts/run_analysis.py
 python -m unittest discover -s tests -v
 ```
 
-Change the financial assumptions in `config/assumptions.json`, then rerun to refresh scenario results, figures, and CSVs. No original group report, original spreadsheet, personal identifiers or university assignment PDF is included.
+Outputs in `outputs/` are regenerated from `config/assumptions.json`. SVG portfolio charts are committed for reliable in-browser preview.
 
-## Methodology at a glance
+## Attribution
 
-For each year, calculate tiered subscription revenues and operating cash costs. Cash tax equals 27% of **previous-year positive EBIT**. Working capital equals 3% of the **following year's operating expenses**. Free cash flow excludes depreciation as a cash expense but includes investment and the yearly change in working capital. Discount a 10-year forecast and a Gordon-growth terminal value; then probability-weight the demand scenarios. Finally, conditionally exercise real options at end-2031 where exercise value exceeds continuing operations.
+The initial Excel analysis and written coursework submission were **collaboratively prepared by a student team**. This repository is a separately prepared, **AI-assisted Python reconstruction for portfolio demonstration**. It is not the original assignment submission; do not claim the reconstructed code was independently authored without reviewing and understanding it. No endorsement from RMIT University is implied.
 
-More details, assumptions and model limitations are documented in [methodology.md](docs/methodology.md).
-
-## Attribution and responsible use
-
-The source Excel modelling and written case analysis were prepared in a **student group** as part of the Master of Finance curriculum at RMIT University. This repository presents a separately organised Python reconstruction and explanatory materials prepared with AI assistance. Individual contributions should be described accurately in interviews and in any public version. No endorsement by RMIT University is implied. **Do not present AI-generated code as independently written without reviewing and being able to explain it.**
-
-This example is educational, not financial advice, and the results are conditional on hypothetical assumptions.
+*Illustrative case study, not investment advice.*
