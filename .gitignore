@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.ipynb_checkpoints/
+# Keep institution-owned material, team submissions and identifying information out of version control.
+raw/
+private/
+originals/
+*.xlsx
+*.xls
+*.pdf
+*.docx
+*.pptx
