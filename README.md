@@ -1,80 +1,53 @@
-# Corporate Financial Management | Capital Budgeting & Real Options
+<div align="center">
 
-**RMIT University · Master of Finance · BAFI3257 · Collaborative coursework**
+![Finance portfolio banner](assets/finance-portfolio-banner.svg)
 
-A portfolio-style reconstruction of an investment decision for a **hypothetical AI-powered subscription platform**. This project examines whether subscription growth can justify infrastructure investment, and how managerial flexibility changes the decision.
+# Corporate Financial Management
+**BAFI3257 · Master of Finance · RMIT University**
 
-> **Private, coursework-derived case.** Original group submissions, instructor materials, student IDs and restricted spreadsheets are deliberately excluded. Read [attribution and rights](NOTICE.md) and the [publication checklist](docs/publication_checklist.md) before changing visibility.
+Two case studies in **capital budgeting, cost of capital and strategic financial decision-making**.
 
-## Investment decision at a glance
+![GitHub Actions tests](https://github.com/Pratham8901/corporate-financial-management-project-valuation/actions/workflows/financial-model-tests.yml/badge.svg)
 
-| Metric | Value ($ millions) |
-|---|---:|
-| Optimistic base-case NPV | **+29.06** |
-| Pessimistic base-case NPV | **−47.60** |
-| **Probability-weighted NPV, without options** | **−16.94** |
-| Optimistic expansion branch | **+86.18** |
-| Expected NPV **with optimal real options** | **+5.91** |
-| **Value of managerial flexibility** | **+22.85** |
+</div>
 
-**Conclusion:** The conventional expected NPV is negative, but the option to expand after favourable demand makes the modelled expected NPV marginally positive. This is *conditional*, not a robust unconditional approval: terminal value is a major driver and future infrastructure reinvestment may reduce economic value.
+---
 
-## Visual overview
+## Choose a case study
 
-### Projected cash flows by scenario
-![Projected annual free cash flow](figures/cashflow_by_scenario.svg)
+| | Assessment 1 · Project investment | Assessment 2 · Corporate advisory |
+|---|---|---|
+| **Question** | Is an AI subscription platform financially viable? | How did Texas Instruments' cost of capital and financing risk change? |
+| **Analysis** | 10-year DCF, NPV, scenario sensitivity, expansion and abandonment options | CAPM/OLS beta, bond debt valuation, WACC, capital-structure and trade-shock stress tests |
+| **Headline** | Expected NPV: **−$16.94m** before options, **+$5.91m** with optimal flexibility | WACC: **9.65% → 12.25%** (+260 bp); proposed planning hurdle rate **11%** |
+| **View** | **[Explore the valuation case](assessment-1-project-valuation/README.md)** | **[Explore the Texas Instruments case](assessment-2-texas-instruments/README.md)** |
 
-### NPV sensitivity to assumptions
-![Sensitivity analysis chart](figures/npv_sensitivity.svg)
+These cases were originally developed in a **student group**, then organised here for portfolio presentation. Assessment 1 includes a separately documented **AI-assisted Python model reconstruction**; Assessment 2 presents the final submitted analysis through concise, newly drawn visual summaries. Neither original group submission nor the raw licensed LSEG exports is included.
 
-### Effect of managerial options
-![Expected NPV and real options value](figures/real_options_value.svg)
+## Assessment 1 · Investment decision with real options
 
-### Subscription revenue path
-![Projected subscription revenue](figures/revenue_by_scenario.svg)
+![NPV sensitivity](figures/npv_sensitivity.svg)
 
-## Sensitivity analysis
+A hypothetical subscription-platform investment: cash flows, infrastructure replacements, working capital, and a terminal value. The study explains why a negative base expected NPV can become marginally positive if the company has the **option to expand** following stronger adoption.
 
-| Case | Optimistic | Pessimistic | Expected NPV |
-|---|---:|---:|---:|
-| Base case; 14% discount | +29.06 | −47.60 | −16.94 |
-| Inflation +1 percentage point | +46.77 | −35.52 | −2.61 |
-| Discount rate reduced to 10% | +233.36 | +99.34 | +152.95 |
-| Both changes | +268.78 | +124.01 | +181.92 |
+[Case study and results](assessment-1-project-valuation/README.md) · [Python model](src/cfm/valuation.py) · [Model tests](tests/test_valuation.py) · [Methodology](docs/methodology.md)
 
-*Values are $ millions. Slight inflation-case differences from the collaborative spreadsheet are explained in the [audit notes](docs/methodology.md).*
+## Assessment 2 · Texas Instruments cost-of-capital advisory
 
-## Skills demonstrated
+![WACC movement](assessment-2-texas-instruments/figures/wacc-comparison.svg)
 
-**Finance:** discounted cash flow, capital budgeting, terminal valuation, scenario analysis, probability weighting, working capital, real-option decision trees.  
-**Analytics:** Python, parameterised inputs, automated model tests, CSV reporting and analytical visualisation.
+A historical comparison at **31 March and 28 September 2026**. The team estimated market-value WACC, assessed uncertainty in a four-year monthly beta regression, compared debt-cost methods and modelled leverage under a hypothetical trade shock.
 
-## Repository guide
+[Case study and insights](assessment-2-texas-instruments/README.md) · [Beta analysis](assessment-2-texas-instruments/figures/beta-sensitivity.svg) · [Capital-structure stress](assessment-2-texas-instruments/figures/leverage-stress.svg)
 
-| Location | Contents |
-|---|---|
-| [config/assumptions.json](config/assumptions.json) | Project inputs and scenario probabilities |
-| [src/cfm/valuation.py](src/cfm/valuation.py) | Reusable financial model |
-| [scripts/run_analysis.py](scripts/run_analysis.py) | Results export |
-| [tests/test_valuation.py](tests/test_valuation.py) | Model regression checks |
-| [outputs/](outputs) | Reconciled CSV summaries |
-| [figures/](figures) | GitHub-friendly SVG charts |
-| [docs/methodology.md](docs/methodology.md) | Methodology, assumptions and audit limitations |
-| [docs/publication_checklist.md](docs/publication_checklist.md) | Requirements before making the repository public |
+## Capabilities illustrated
 
-## Reproduce results
+`Excel financial modelling` · `Python` · `Discounted cash flow` · `CAPM` · `Regression & beta estimation` · `Bond valuation` · `WACC` · `Real options` · `Scenario analysis` · `Risk communication`
 
-Requires **Python 3.10+**. No third-party Python library is needed to run the valuation and tests.
+## Reproducibility and attribution
 
-```bash
-python scripts/run_analysis.py
-python -m unittest discover -s tests -v
-```
+- **Assessment 1:** Reproduce the companion Python calculations with `python scripts/run_analysis.py` and check the model with `python -m unittest discover -s tests -v`; the continuous-integration badge reports the test workflow.
+- **Assessment 2:** Figures reproduce **reported results from the final submitted student slides**, not a new calculation from redistributable raw LSEG data. Numerical claims have not been independently re-audited in this documentation-only update.
+- **Responsible sharing:** The original group work, course materials and LSEG data may have reuse restrictions. See [rights notice](NOTICE.md) and [publication checklist](docs/publication_checklist.md).
 
-Outputs in `outputs/` are regenerated from `config/assumptions.json`. SVG portfolio charts are committed for reliable in-browser preview.
-
-## Attribution
-
-The initial Excel analysis and written coursework submission were **collaboratively prepared by a student team**. This repository is a separately prepared, **AI-assisted Python reconstruction for portfolio demonstration**. It is not the original assignment submission; do not claim the reconstructed code was independently authored without reviewing and understanding it. No endorsement from RMIT University is implied.
-
-*Illustrative case study, not investment advice.*
+*Historical educational case studies. No RMIT or corporate endorsement is implied. This is not investment advice.*
