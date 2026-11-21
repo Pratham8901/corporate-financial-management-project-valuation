@@ -57,8 +57,8 @@ A portfolio-style reconstruction of an investment decision for a **hypothetical 
 | [src/cfm/valuation.py](../src/cfm/valuation.py) | Reusable financial model |
 | [scripts/run_analysis.py](../scripts/run_analysis.py) | Results export |
 | [tests/test_valuation.py](../tests/test_valuation.py) | Model regression checks |
-| [outputs/](outputs) | Reconciled CSV summaries |
-| [figures/](figures) | GitHub-friendly SVG charts |
+| [outputs/](../outputs) | Reconciled CSV summaries |
+| [figures/](../figures) | GitHub-friendly SVG charts |
 | [docs/methodology.md](../docs/methodology.md) | Methodology, assumptions and audit limitations |
 | [docs/publication_checklist.md](../docs/publication_checklist.md) | Requirements before making the repository public |
 
