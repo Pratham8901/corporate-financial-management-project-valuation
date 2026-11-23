@@ -1,40 +1,19 @@
-# NovaThera Pharmaceuticals | Strategic sale or IPO?
+# NovaThera Pharmaceuticals venture capital exit
 
-**Individual research project · Corporate Financial Management · RMIT Master of Finance · October 2026**
+**Individual investment committee report · Pratham Kurele · RMIT Corporate Financial Management**
 
-A venture fund owns 25% of a hypothetical pharmaceutical company and wants to realise its investment. The company also needs A$95m to fund growth. A sale gives the fund liquidity. A primary share issue sends the money to the company. That difference drives the recommendation.
+I recommended a negotiated sale to a strategic buyer, with an IPO as the fallback. The distinction was liquidity. A sale at A$880m enterprise value would pay the fund in cash. An A$95m primary IPO would fund the company and leave the fund with a 22.5% stake to sell later.
 
-**Case recommendation.** Seek a strategic sale near A$880m enterprise value, with a cash election for the fund and a rollover option for other holders. Keep an IPO with a secondary share sale available if bidders offer too little. All amounts are Australian dollars.
+## What the fund would receive
 
-## How the exit routes compare
+The fund had invested A$40m for a 25% stake. Adding A$30m of cash to the proposed enterprise value gives A$910m of equity value. Under the case assumptions, the fund would receive **A$227.5m**, a **5.69× gross multiple** and a **21.5% gross internal rate of return**.
 
-| Route | Cash to the fund before fees and tax | What the fund retains |
-|---|---:|---|
-| Sale at A$880m enterprise value, fund elects cash | A$227.5m | No remaining stake. A$30m of net cash takes equity value to A$910m. The fund receives 25%, or 5.69× its A$40m cost. |
-| A$95m primary IPO | A$0 at issue | 22.45% ownership after dilution. New public investors hold 10.20% under the case convention. |
-| A$95m primary IPO plus secondary shares sold by the fund | A$91.34m at issue | About 12.65% ownership. Counting both legs gives a 20% float under the same assumptions. |
+![Table 5 from my report. The fund receives A$227.5m, gains A$187.5m on A$40m invested and earns a 5.69× multiple and a 21.5% internal rate of return.](exhibits/fund-proceeds.png)
 
-The mixed IPO funds the same growth plan as the primary-only issue. The secondary proceeds come from selling existing shares, so they go to the fund and add no cash to the company.
+## How I compared the exits
 
-## What supports the sale price
+I valued the business against peers, estimated a buyer’s shareable synergies and compared the timing of the fund’s cash receipts. At a 10% required return, the report valued the sale proceeds at A$211.8m today and the IPO route at A$167.9m. The comparison depends on the sale price and how quickly the fund could sell its listed stake.
 
-The report estimated standalone enterprise value at A$836.7m from peer multiples. It assumed A$14m of annual pre-tax synergies, a 30% tax rate, a 9% capitalisation rate and A$25m of integration costs. Giving the seller half of the estimated net synergies yields A$878.6m, rounded to A$880m for the exit comparison.
+*From my individual report, “NovaThera Pharmaceuticals: VC Exit Pathway Evaluation,” Tables 4, 5 and 8. The image is an excerpt of Table 5. NovaThera is an academic case.*
 
-Only two peers had usable earnings multiples. The synergy calculation capitalises the full run rate immediately, although the business case allowed up to three years to achieve it. A slower ramp or a smaller share of savings would weaken the case for the premium.
-
-## Why the IPO denominator matters
-
-The coursework uses standalone enterprise value as its pre-money IPO base. On that basis, A$95m divided by A$931.7m gives a 10.20% float. Including the existing A$30m of net cash in pre-money equity gives 9.88%. Both calculations assume all new shares qualify as free float and all existing shares are held outside it. The 20% target is one of several ASX admission criteria. [ASX listing requirements](https://www.asx.com.au/listings/listing-considerations/listing-requirements)
-
-## Reproduce the comparison
-
-From the repository root, run the default case or change the offer price and primary raise. The companion script uses the Python standard library.
-
-```bash
-python scripts/compare_exit_routes.py
-python scripts/compare_exit_routes.py --sale-ev 700 --primary 100
-```
-
-[Python model](../scripts/compare_exit_routes.py) · [Calculation checks](../tests/test_exit_routes.py) · [Corporate finance portfolio](../README.md)
-
-Pratham Kurele completed the underlying individual research project. This post-submission, AI-assisted portfolio reconstruction uses selected case assumptions and gross scenario results. The peer valuation comes from the report. The companion model recalculates the transaction arithmetic.
+[Corporate finance projects](../README.md)

@@ -1,23 +1,13 @@
-# Corporate finance | Valuation and financing decisions
+# Corporate finance and valuation
 
-Three projects from the Master of Finance at RMIT University. Each starts with a decision, shows which assumption matters most, and gives the reader a way to inspect the evidence.
+**Pratham Kurele · Master of Finance, RMIT University · BAFI3257**
 
-| Case study | Decision and finding | Evidence |
-|---|---|---|
-| **[NovaThera Pharmaceuticals](assessment-3-novathera-exit/README.md)** · Individual | A strategic sale at A$880m enterprise value would return A$227.5m to the venture fund. An A$95m primary IPO would fund the company while leaving the fund invested. | [Exit proceeds and dilution model](scripts/compare_exit_routes.py) |
-| **[Texas Instruments](assessment-2-texas-instruments/README.md)** · Team | The team's estimated weighted average cost of capital rose from 9.65% to 12.25% between March and September 2026. Omitting one influential month lowered the September estimate to 10.43%. | [Reported metrics](assessment-2-texas-instruments/reported-metrics.csv) · [Estimation assumptions](assessment-2-texas-instruments/methodology-and-limitations.md) |
-| **[Subscription platform investment](assessment-1-project-valuation/README.md)** · Team | With fixed operating plans the model produced an expected net present value of −$16.94m. The option to expand after strong adoption raised it to +$5.91m. | [Ten-year cash-flow model](src/cfm/valuation.py) · [Sensitivity results](outputs/npv_summary.csv) |
+Three coursework decisions cover different sides of valuation. The individual case follows cash through to a venture fund. The two team projects examine the cost of capital and the value of waiting for more information before expanding.
 
-## Run the models
+| Case | Authorship | Result from the assignment |
+| --- | --- | --- |
+| [NovaThera Pharmaceuticals · Venture capital exit](assessment-3-novathera-exit/README.md) | Individual | At A$880m enterprise value, a cash sale would return A$227.5m to the fund. The case includes the fund-proceeds table from my report. |
+| [Texas Instruments · Cost of capital](assessment-2-texas-instruments/README.md) | Team | Excluding one influential month lowered the September WACC estimate from 12.25% to 10.43%. We recommended an 11% planning rate. |
+| [Dreamscape · Subscription platform valuation](assessment-1-project-valuation/README.md) | Team | The option to expand after strong demand lifted expected net present value from −$16.94m to +$5.91m. |
 
-Use Python 3.10 or later from the repository root. The numerical models and tests use the standard library.
-
-```bash
-python scripts/compare_exit_routes.py
-python scripts/run_analysis.py
-python -m unittest discover -s tests -v
-```
-
-The first command compares a cash sale with a primary IPO and a secondary share sale. The second rebuilds the subscription platform valuation from the model assumptions. For Texas Instruments, the published figures come from the team's final presentation.
-
-The first two course assessments were group projects. NovaThera was an individual report. The companion Python models and portfolio pages were prepared after submission with AI assistance. [Attribution and source rights](NOTICE.md)
+[Authorship and source material](NOTICE.md)
