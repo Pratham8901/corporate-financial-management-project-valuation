@@ -1,53 +1,23 @@
-<div align="center">
+# Corporate finance | Valuation and financing decisions
 
-![Finance portfolio banner](assets/finance-portfolio-banner.svg)
+Three projects from the Master of Finance at RMIT University. Each starts with a decision, shows which assumption matters most, and gives the reader a way to inspect the evidence.
 
-# Corporate Financial Management
-**BAFI3257 · Master of Finance · RMIT University**
-
-Two case studies in **capital budgeting, cost of capital and strategic financial decision-making**.
-
-![GitHub Actions tests](https://github.com/Pratham8901/corporate-financial-management-project-valuation/actions/workflows/financial-model-tests.yml/badge.svg)
-
-</div>
-
----
-
-## Choose a case study
-
-| | Assessment 1 · Project investment | Assessment 2 · Corporate advisory |
+| Case study | Decision and finding | Evidence |
 |---|---|---|
-| **Question** | Is an AI subscription platform financially viable? | How did Texas Instruments' cost of capital and financing risk change? |
-| **Analysis** | 10-year DCF, NPV, scenario sensitivity, expansion and abandonment options | CAPM/OLS beta, bond debt valuation, WACC, capital-structure and trade-shock stress tests |
-| **Headline** | Expected NPV: **−$16.94m** before options, **+$5.91m** with optimal flexibility | WACC: **9.65% → 12.25%** (+260 bp); proposed planning hurdle rate **11%** |
-| **View** | **[Explore the valuation case](assessment-1-project-valuation/README.md)** | **[Explore the Texas Instruments case](assessment-2-texas-instruments/README.md)** |
+| **[NovaThera Pharmaceuticals](assessment-3-novathera-exit/README.md)** · Individual | A strategic sale at A$880m enterprise value would return A$227.5m to the venture fund. An A$95m primary IPO would fund the company while leaving the fund invested. | [Exit proceeds and dilution model](scripts/compare_exit_routes.py) |
+| **[Texas Instruments](assessment-2-texas-instruments/README.md)** · Team | The team's estimated weighted average cost of capital rose from 9.65% to 12.25% between March and September 2026. Omitting one influential month lowered the September estimate to 10.43%. | [Reported metrics](assessment-2-texas-instruments/reported-metrics.csv) · [Estimation assumptions](assessment-2-texas-instruments/methodology-and-limitations.md) |
+| **[Subscription platform investment](assessment-1-project-valuation/README.md)** · Team | With fixed operating plans the model produced an expected net present value of −$16.94m. The option to expand after strong adoption raised it to +$5.91m. | [Ten-year cash-flow model](src/cfm/valuation.py) · [Sensitivity results](outputs/npv_summary.csv) |
 
-These cases were originally developed in a **student group**, then organised here for portfolio presentation. Assessment 1 includes a separately documented **AI-assisted Python model reconstruction**; Assessment 2 presents the final submitted analysis through concise, newly drawn visual summaries. Neither original group submission nor the raw licensed LSEG exports is included.
+## Run the models
 
-## Assessment 1 · Investment decision with real options
+Use Python 3.10 or later from the repository root. The numerical models and tests use the standard library.
 
-![NPV sensitivity](figures/npv_sensitivity.svg)
+```bash
+python scripts/compare_exit_routes.py
+python scripts/run_analysis.py
+python -m unittest discover -s tests -v
+```
 
-A hypothetical subscription-platform investment: cash flows, infrastructure replacements, working capital, and a terminal value. The study explains why a negative base expected NPV can become marginally positive if the company has the **option to expand** following stronger adoption.
+The first command compares a cash sale with a primary IPO and a secondary share sale. The second rebuilds the subscription platform valuation from the model assumptions. For Texas Instruments, the published figures come from the team's final presentation.
 
-[Case study and results](assessment-1-project-valuation/README.md) · [Python model](src/cfm/valuation.py) · [Model tests](tests/test_valuation.py) · [Methodology](docs/methodology.md)
-
-## Assessment 2 · Texas Instruments cost-of-capital advisory
-
-![WACC movement](assessment-2-texas-instruments/figures/wacc-comparison.svg)
-
-A historical comparison at **31 March and 28 September 2026**. The team estimated market-value WACC, assessed uncertainty in a four-year monthly beta regression, compared debt-cost methods and modelled leverage under a hypothetical trade shock.
-
-[Case study and insights](assessment-2-texas-instruments/README.md) · [Beta analysis](assessment-2-texas-instruments/figures/beta-sensitivity.svg) · [Capital-structure stress](assessment-2-texas-instruments/figures/leverage-stress.svg)
-
-## Capabilities illustrated
-
-`Excel financial modelling` · `Python` · `Discounted cash flow` · `CAPM` · `Regression & beta estimation` · `Bond valuation` · `WACC` · `Real options` · `Scenario analysis` · `Risk communication`
-
-## Reproducibility and attribution
-
-- **Assessment 1:** Reproduce the companion Python calculations with `python scripts/run_analysis.py` and check the model with `python -m unittest discover -s tests -v`; the continuous-integration badge reports the test workflow.
-- **Assessment 2:** Figures reproduce **reported results from the final submitted student slides**, not a new calculation from redistributable raw LSEG data. Numerical claims have not been independently re-audited in this documentation-only update.
-- **Responsible sharing:** The original group work, course materials and LSEG data may have reuse restrictions. See [rights notice](NOTICE.md) and [publication checklist](docs/publication_checklist.md).
-
-*Historical educational case studies. No RMIT or corporate endorsement is implied. This is not investment advice.*
+The first two course assessments were group projects. NovaThera was an individual report. The companion Python models and portfolio pages were prepared after submission with AI assistance. [Attribution and source rights](NOTICE.md)

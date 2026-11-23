@@ -4,7 +4,7 @@
 
 A portfolio-style reconstruction of an investment decision for a **hypothetical AI-powered subscription platform**. This project examines whether subscription growth can justify infrastructure investment, and how managerial flexibility changes the decision.
 
-> **Collaborative coursework-based analysis.** This is an AI-assisted portfolio reconstruction, not the original assessment submission. This repository is currently publicly visible; check group permissions and university case-material rights before further redistribution. The original group submissions and restricted spreadsheets are excluded.
+> **Team project.** The student team prepared the Excel valuation and investment analysis. The Python model and figures are an AI-assisted, post-submission reconstruction. [Attribution and reuse terms](../NOTICE.md)
 
 ## Investment decision at a glance
 
@@ -60,7 +60,7 @@ A portfolio-style reconstruction of an investment decision for a **hypothetical 
 | [outputs/](../outputs) | Reconciled CSV summaries |
 | [figures/](../figures) | GitHub-friendly SVG charts |
 | [docs/methodology.md](../docs/methodology.md) | Methodology, assumptions and audit limitations |
-| [docs/publication_checklist.md](../docs/publication_checklist.md) | Requirements before making the repository public |
+| [docs/publication_checklist.md](../docs/publication_checklist.md) | Coursework permissions and data reuse considerations |
 
 ## Reproduce results
 
@@ -75,6 +75,6 @@ Outputs in `outputs/` are regenerated from `config/assumptions.json`. SVG portfo
 
 ## Attribution
 
-The initial Excel analysis and written coursework submission were **collaboratively prepared by a student team**. This repository is a separately prepared, **AI-assisted Python reconstruction for portfolio demonstration**. It is not the original assignment submission; do not claim the reconstructed code was independently authored without reviewing and understanding it. No endorsement from RMIT University is implied.
+The case credits the student team for the original analysis. The separately prepared Python companion documents how the portfolio calculations relate to that work. [Methods and reconciliation](../docs/methodology.md)
 
 *Illustrative case study, not investment advice.*

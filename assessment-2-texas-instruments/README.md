@@ -74,6 +74,6 @@ These are **historical student-team recommendations**, not a statement about act
 | [Methodology and limitations](methodology-and-limitations.md) | Estimation choices, source provenance and sensitivity caveats |
 | [Attribution and sources](attribution-and-sources.md) | Collaborative ownership and LSEG restrictions |
 | [Key reported metrics (CSV)](reported-metrics.csv) | Small manually transcribed set of disclosed presentation outputs |
-| [Course overview](../README.md) | Browse both finance projects |
+| [Course overview](../README.md) | Browse all three corporate finance cases |
 
 *Figures are newly drawn from the final submitted deck's stated results. Raw LSEG data and university-provided materials are not redistributed.*
